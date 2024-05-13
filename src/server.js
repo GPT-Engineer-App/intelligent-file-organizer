@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(fileUpload());
+app.use(express.json());
 
 // Google Cloud Natural Language API setup
 const language = google.language({
@@ -26,8 +27,8 @@ app.post("/api/upload", (req, res) => {
 
   uploadedFile.mv(uploadPath, async (err) => {
     if (err) {
-      console.error(err);
-      return res.status(500).send(err);
+      console.error("File move error:", err);
+      return res.status(500).send("Error moving the file.");
     }
 
     try {
