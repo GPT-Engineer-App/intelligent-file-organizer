@@ -1,6 +1,6 @@
-import { Container, Text, VStack, Heading, Box, Button, IconButton } from "@chakra-ui/react";
+import { Container, Text, VStack, Heading, Box, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { FaUpload, FaFolderOpen, FaSearch } from "react-icons/fa";
+import { FaUpload, FaFolderOpen, FaSearch, FaTachometerAlt } from "react-icons/fa";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -19,8 +19,11 @@ const Index = () => {
           <Button leftIcon={<FaFolderOpen />} colorScheme="blue" size="lg" mb={4} onClick={() => navigate('/organize')}>
             Organize Files
           </Button>
-          <Button leftIcon={<FaSearch />} colorScheme="purple" size="lg" onClick={() => navigate('/analyze')}>
+          <Button leftIcon={<FaSearch />} colorScheme="purple" size="lg" mb={4} onClick={() => navigate('/analyze')}>
             Analyze Content
+          </Button>
+          <Button leftIcon={<FaTachometerAlt />} colorScheme="green" size="lg" onClick={() => navigate('/dashboard')}>
+            Go to Dashboard
           </Button>
         </Box>
       </VStack>
