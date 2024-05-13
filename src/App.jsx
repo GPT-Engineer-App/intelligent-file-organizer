@@ -6,10 +6,12 @@ import Analyze from "./pages/Analyze.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Library from "./pages/Library.jsx";
 import Chat from "./pages/Chat.jsx";
+import NavigationMenu from "./components/NavigationMenu.jsx"; // Import the new NavigationMenu component
 
 function App() {
   return (
     <Router>
+      <NavigationMenu /> {/* Add the NavigationMenu component here */}
       <Routes>
         <Route exact path="/" element={<Index />} />
       <Route path="/upload" element={<Upload />} />
