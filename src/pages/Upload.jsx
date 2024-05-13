@@ -4,6 +4,7 @@ import { Container, Heading, Text, Input, Button, VStack } from "@chakra-ui/reac
 const Upload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState("");
+  const [analysisResult, setAnalysisResult] = useState(null);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -26,6 +27,8 @@ const Upload = () => {
 
       if (response.ok) {
         setUploadStatus("File uploaded successfully!");
+      const data = await response.json();
+        setAnalysisResult(data.analysis);
       } else {
         setUploadStatus("Failed to upload file.");
       }
@@ -42,6 +45,12 @@ const Upload = () => {
         <Input type="file" onChange={handleFileChange} />
         <Button colorScheme="teal" onClick={handleUpload}>Upload</Button>
         {uploadStatus && <Text>{uploadStatus}</Text>}
+        {analysisResult && (
+          <VStack spacing={4} mt={6}>
+            <Heading as="h3" size="lg">Analysis Result</Heading>
+            <Text>{analysisResult}</Text>
+          </VStack>
+        )}
       </VStack>
     </Container>
   );
