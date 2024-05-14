@@ -1,5 +1,4 @@
 import { Box, Flex, HStack, IconButton, useDisclosure, Stack, Button } from "@chakra-ui/react";
-import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -10,7 +9,7 @@ const Navbar = () => {
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <IconButton
           size="md"
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          icon={isOpen ? "X" : "≡"}
           aria-label="Open Menu"
           display={{ md: "none" }}
           onClick={isOpen ? onClose : onOpen}
